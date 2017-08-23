@@ -11,61 +11,109 @@ initial-scale=1.0">
     <style>
         body{
             margin-top:70px;
-            background:slategrey;
+            background: #333;
             color:#fff;
         }
     </style>
     <title>Weight Converter</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1 class="display-4 text-center mb-3">Weight Converter</h1>
-                <form>
-                    <div class="form-group">
-                        <input
-                        id="lbsInput"
-                        type="number"
-                        class="form-control form-control-lg"
-                        placeholder="Enter Pounds...">
-                    </div>
-                </form>
-                <div id="output">
-                    <div class="card card-primary mb-2">
-                        <div class="card-block">
-                            <h4>Grams:</h4>
-                            <div id="gramsOutput"></div>
-                        </div>
-                    </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 offset-md-3">
+                  <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+                  <form>
+                      <div class="form-group">
+                          <input
+                          id="lbsInput"
+                          type="number"
+                          class="form-control form-control-lg"
+                          placeholder="Enter Pounds...">
+                      </div>
+                  </form>
+                  <div id="output">
+                      <div class="card card-primary mb-2">
+                          <div class="card-block">
+                              <h4>Grams:</h4>
+                              <div id="gramsOutput"></div>
+                          </div>
+                      </div>
 
-                    <div class="card card-success mb-2">
-                        <div class="card-block">
-                            <h4>Kilograms:</h4>
-                            <div id="kgOutput"></div>
-                        </div>
-                    </div>
+                      <div class="card card-success mb-2">
+                          <div class="card-block">
+                              <h4>Kilograms:</h4>
+                              <div id="kgOutput"></div>
+                          </div>
+                      </div>
 
-                    <div class="card card-danger mb-2">
-                        <div class="card-block">
-                            <h4>Ounces:</h4>
-                            <div id="ozOutput"></div>
-                        </div>
-                    </div>
+                      <div class="card card-danger mb-2">
+                          <div class="card-block">
+                              <h4>Ounces:</h4>
+                              <div id="ozOutput"></div>
+                          </div>
+                          <br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Temp Conversion -->
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 offset-md-3">
+                  <h1 class="display-4 text-center mb-3">Temperature Converter</h1>
+                  <form>
+                      <div class="form-group">
+                          <input
+                          id="farInput"
+                          type="number"
+                          class="form-control form-control-lg"
+                          placeholder="Enter Fahrenheit...">
+                      </div>
+                  </form>
+                  <div id="output2">
+                      <div class="card card-danger mb-2">
+                          <div class="card-block">
+                              <h4>Celsius:</h4>
+                              <div id="celOutput"></div>
+                          </div>
+                      </div>
+
+                      <div class="card card-success mb-2">
+                          <div class="card-block">
+                              <h4>Kelvin:</h4>
+                              <div id="kelOutput"></div>
+                          </div>
+                      </div>
                 </div>
             </div>
         </div>
-    </div>
 
-<script>
-    document.getElementById('output').style.visibility = 'hidden';
-    document.getElementById('lbsInput').addEventListener('input', function(e){
-        document.getElementById('output').style.visibility = 'visible';
-        let lbs = e.target.value;
-        document.getElementById('gramsOutput').innerHTML = ML = lbs/0.0022046;
-        document.getElementById('kgOutput').innerHTML = ML = lbs/2.2046;
-        document.getElementById('ozOutput').innerHTML = ML = lbs*16;
-    });
-</script>
+      <script>
+          document.getElementById('output').style.visibility = 'hidden';
+          document.getElementById('lbsInput').addEventListener('input', function(e){
+                    document.getElementById('output').style.visibility = 'visible';
+              let lbs = e.target.value;
+              document.getElementById('gramsOutput').innerHTML = ML = lbs/0.0022046;
+              document.getElementById('kgOutput').innerHTML = ML = lbs/2.2046;
+              document.getElementById('ozOutput').innerHTML = ML = lbs*16;
+          });
+      </script>
+          <!-- Temp conversions -->
+          <script>
+              document.getElementById('output2').style.visibility = 'hidden';
+              document.getElementById('farInput').addEventListener('input', function(e){
+                  document.getElementById('output2').style.visibility = 'visible';
+                  // use fahrenheit to convert
+                  let far = e.target.value;
+
+                  //convert to celsius
+                  document.getElementById('celOutput').innerHTML = ((5/9)*((far*1)-32)).toFixed(2);
+
+                  //convert to kelvin
+                  document.getElementById('kelOutput').innerHTML = ((5/9)*((far*1)+459.67)).toFixed(2);
+              });
+          </script>
+      </div>
 </body>
 </html>
