@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width,
 initial-scale=1.0">
     <meta http-equiv="X-UA-compatable" content="ie-edge">
+
+    <!-- Bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
           crossorigin="anonymous">
-    <style>
-        body{
-            margin-top:70px;
-            background: #333;
-            color:#fff;
-        }
-    </style>
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Weight Converter</title>
 </head>
+
 <body>
+    <!-- Weight conversion -->
       <div class="container">
+          <!-- Cube Icon -->
+          <div id="cubes" class="fa"></div>
+
           <div class="row">
               <div class="col-md-6 offset-md-3">
                   <h1 class="display-4 text-center mb-3">Weight Converter</h1>
@@ -34,8 +41,8 @@ initial-scale=1.0">
                   <div id="output">
                       <div class="card card-primary mb-2">
                           <div class="card-block">
-                              <h4>Grams:</h4>
-                              <div id="gramsOutput"></div>
+                              <h4>Ounces:</h4>
+                              <div id="ozOutput"></div>
                           </div>
                       </div>
 
@@ -48,8 +55,8 @@ initial-scale=1.0">
 
                       <div class="card card-danger mb-2">
                           <div class="card-block">
-                              <h4>Ounces:</h4>
-                              <div id="ozOutput"></div>
+                              <h4>Grams:</h4>
+                              <div id="gramsOutput"></div>
                           </div>
                           <br>
                       </div>
@@ -57,6 +64,10 @@ initial-scale=1.0">
               </div>
           </div>
       </div>
+      <br><br>
+      <!-- Thermometer icon -->
+      <div id="thermo" class="fa"></div>
+
       <!-- Temp Conversion -->
       <div class="container">
           <div class="row">
@@ -89,6 +100,7 @@ initial-scale=1.0">
             </div>
         </div>
 
+          <!--  Weight Conversion Script -->
       <script>
           document.getElementById('output').style.visibility = 'hidden';
           document.getElementById('lbsInput').addEventListener('input', function(e){
@@ -99,6 +111,7 @@ initial-scale=1.0">
               document.getElementById('ozOutput').innerHTML = ML = lbs*16;
           });
       </script>
+
           <!-- Temp conversions -->
           <script>
               document.getElementById('output2').style.visibility = 'hidden';
@@ -113,6 +126,52 @@ initial-scale=1.0">
                   //convert to kelvin
                   document.getElementById('kelOutput').innerHTML = ((5/9)*((far*1)+459.67)).toFixed(2);
               });
+          </script>
+
+          <!-- Animated Icons -->
+          <script>
+
+              // Thermometer animation
+              function startMeter(){
+                  let thermo = document.getElementById('thermo');
+                  thermo.innerHTML = "&#xf2cb;";
+
+                  setTimeout(function() {
+                      thermo.innerHTML = "&#xf2ca;";
+                  }, 1000);
+
+                  setTimeout(function() {
+                      thermo.innerHTML = "&#xf2c9;";
+                  }, 2000);
+
+                  setTimeout(function() {
+                      thermo.innerHTML = "&#xf2c8;";
+                  }, 3000);
+
+                  setTimeout(function() {
+                      thermo.innerHTML = "&#xf2c7;";
+                  }, 4000);
+              }
+              // Start the animation
+              startMeter();
+
+              // Run every 5 seconds
+              setInterval(startMeter, 5000);
+
+              // Cube animation
+              function startCubes(){
+                  let cubes = document.getElementById('cubes');
+                  cubes.innerHTML = "&#xf1b2;";
+
+                  setTimeout(function() {
+                      cubes.innerHTML = "&#xf1b3;";
+                  }, 1000);
+              }
+              startCubes();
+
+              // Run every 3 seconds
+              setInterval(startCubes, 3000);
+
           </script>
       </div>
 </body>
